@@ -1,6 +1,8 @@
 # pricetag
 Get the price information about products in some stores, see supported stores below.
 
+[![Build Status](https://travis-ci.org/lucasfsousa/pricetag.svg?branch=master)](https://travis-ci.org/lucasfsousa/pricetag)
+
 ## How it works
 Using the library [JSOUP](https://jsoup.org/), is possible to read the page and select some data using css selectors.
 
@@ -34,7 +36,6 @@ Using the library [JSOUP](https://jsoup.org/), is possible to read the page and 
 
 ## TODOs
 
- - Configure Travis CI
  - Add the package in the Maven Central Repository
  - Add support to others stores (Gamestop \o/)
  - Improve documentation
