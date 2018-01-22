@@ -26,7 +26,7 @@ public class PriceTag {
     }
 
     private List<Scraper> getScrapers() {
-        final Reflections reflections = new Reflections("br.com.lucasfelix.pricetag.scraper");
+        final Reflections reflections = new Reflections("com.github.lucasfsousa.pricetag.scraper");
         final Set<Class<? extends Scraper>> scraperClasses = reflections.getSubTypesOf(Scraper.class);
         final List<Scraper> scrapers = new ArrayList<>();
         for (final Class<? extends Scraper> c : scraperClasses) {
