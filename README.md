@@ -17,6 +17,15 @@ Using the library [JSOUP](https://jsoup.org/), is possible to read the page and 
         }
     }
 
+## Maven
+```
+<dependency>
+  <groupId>com.github.lucasfsousa</groupId>
+  <artifactId>pricetag</artifactId>
+  <version>0.0.1</version>
+</dependency>
+```
+
 ## Supported stores:
 
 ### Internacional
@@ -35,7 +44,5 @@ Using the library [JSOUP](https://jsoup.org/), is possible to read the page and 
  - Media Markt
 
 ## TODOs
-
- - Add the package in the Maven Central Repository
  - Add support to others stores (Gamestop \o/)
  - Improve documentation
