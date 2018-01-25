@@ -46,3 +46,5 @@ Using the library [JSOUP](https://jsoup.org/), is possible to read the page and 
 ## TODOs
  - Add support to others stores (Gamestop \o/)
  - Improve documentation
+ - Return product images url
+ - Return store information: name and country
