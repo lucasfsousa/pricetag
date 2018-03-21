@@ -19,10 +19,13 @@ public class PriceTag {
         this.scrapers = scrapers;
     }
 
-    public Product process(final String url) throws ScraperNotFound, ParseException {
-        final Scraper scraper = scrapers.stream().filter(s -> s.matches(url)).findAny()
+    protected Scraper getScraperFromUrl(String url) throws ScraperNotFound {
+        return scrapers.stream().filter(s -> s.matches(url)).findAny()
                 .orElseThrow(() -> new ScraperNotFound("Scraper not found for URL: " + url));
-        return scraper.process(url);
+    }
+
+    public Product process(final String url) throws ScraperNotFound, ParseException {
+        return getScraperFromUrl(url).process(url);
     }
 
     private List<Scraper> getScrapers() {
