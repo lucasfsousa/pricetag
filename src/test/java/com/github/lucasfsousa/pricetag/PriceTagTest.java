@@ -19,7 +19,7 @@ public class PriceTagTest {
         assertTrue(scraper instanceof AmazonScraper);
     }
 
-    @Test(expected = ScraperNotFound.class)
+    @Test(expected = ScraperNotFoundException.class)
     public void shouldThrowScraperNotFound() throws Exception {
         final PriceTag priceTag = new PriceTag(Collections.emptyList());
         priceTag.process("http://someurl");
