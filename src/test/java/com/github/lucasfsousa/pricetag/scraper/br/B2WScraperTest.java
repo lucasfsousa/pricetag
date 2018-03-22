@@ -31,6 +31,11 @@ public class B2WScraperTest extends AbstractScraperTest {
         final Document document = getDocument("br/americanas");
         assertEquals("R$ 338,16", scraper.getPrice(document));
         assertEquals("HD Externo Portátil Seagate Expansion 2TB USB 3.0 Preto", scraper.getTitle(document));
+        assertEquals("Seagate", scraper.getBrand(document));
+        assertEquals("Americanas.com", scraper.getStore(document));
+        assertEquals("BR", scraper.getCountryCode(document));
+        assertEquals(6, scraper.getImages(document).size());
+        assertEquals("122423909", scraper.getMetadata(document).get("Código"));
     }
 
     @Test
@@ -40,6 +45,11 @@ public class B2WScraperTest extends AbstractScraperTest {
         assertEquals(
                 "Smartphone Samsung Galaxy S8 Dual Chip Android 7.0 Tela 5.8\" Octa-Core 2.3GHz 64GB 4G Câmera 12MP - Preto",
                 scraper.getTitle(document));
+        assertEquals("Samsung", scraper.getBrand(document));
+        assertEquals("Submarino", scraper.getStore(document));
+        assertEquals("BR", scraper.getCountryCode(document));
+        assertEquals(7, scraper.getImages(document).size());
+        assertEquals("132118431", scraper.getMetadata(document).get("Código"));
     }
 
     @Test
@@ -47,5 +57,10 @@ public class B2WScraperTest extends AbstractScraperTest {
         final Document document = getDocument("br/shoptime");
         assertEquals("R$ 199,99", scraper.getPrice(document));
         assertEquals("Jogo de Panelas Tramontina Paris 7 Peças Cereja Alumínio", scraper.getTitle(document));
+        assertEquals("Tramontina", scraper.getBrand(document));
+        assertEquals("Shoptime", scraper.getStore(document));
+        assertEquals("BR", scraper.getCountryCode(document));
+        assertEquals(1, scraper.getImages(document).size());
+        assertEquals("127743039", scraper.getMetadata(document).get("Código"));
     }
 }
