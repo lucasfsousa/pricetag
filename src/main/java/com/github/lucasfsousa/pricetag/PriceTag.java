@@ -1,5 +1,6 @@
 package com.github.lucasfsousa.pricetag;
 
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -33,12 +34,22 @@ public class PriceTag {
         final Set<Class<? extends Scraper>> scraperClasses = reflections.getSubTypesOf(Scraper.class);
         final List<Scraper> scrapers = new ArrayList<>();
         for (final Class<? extends Scraper> c : scraperClasses) {
-            try {
-                scrapers.add(c.newInstance());
-            } catch (InstantiationException | IllegalAccessException e) {
-                System.out.println("Error creating instance of: " + c.getName());
+            if (isInstantiable(c)) {
+                try {
+                    scrapers.add(c.newInstance());
+                } catch (InstantiationException | IllegalAccessException e) {
+                    throw new IllegalStateException("Error creating instance of: " + c.getName(), e);
+                }
             }
         }
         return scrapers;
     }
+
+    public static boolean isInstantiable(Class<?> c) {
+        if (Modifier.isAbstract(c.getModifiers()) || c.isInterface()) {
+            return false;
+        }
+        return true;
+    }
+
 }

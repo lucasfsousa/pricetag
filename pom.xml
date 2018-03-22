@@ -40,6 +40,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <jsoup-version>1.10.3</jsoup-version>
         <reflections-version>0.9.11</reflections-version>
+        <jackson-version>2.9.4</jackson-version>
         <junit-version>4.12</junit-version>
         <maven-source-version>3.0.1</maven-source-version>
         <maven-javadoc-version>3.0.0</maven-javadoc-version>
@@ -53,6 +54,11 @@
             <artifactId>jsoup</artifactId>
             <version>${jsoup-version}</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-version}</version>
         </dependency>
         <dependency>
             <groupId>org.reflections</groupId>
