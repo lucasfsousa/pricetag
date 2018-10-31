@@ -1,25 +1,49 @@
 package com.github.lucasfsousa.pricetag;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 
 public class Product {
+    private String store;
+    private String countryCode;
+    private String brand;
     private String url;
     private String title;
-    private final String priceAsText;
+    private String priceAsText;
     private BigDecimal price;
+    private List<String> images;
+    private Map<String, String> metadata;
 
-    public Product(final String url, final String title, final String priceAsText, final BigDecimal price) {
-        this.url = url;
-        this.title = title;
-        this.priceAsText = priceAsText;
-        this.price = price;
+    public String getStore() {
+        return store;
+    }
+
+    public void setStore(String store) {
+        this.store = store;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(final String url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 
@@ -27,25 +51,40 @@ public class Product {
         return title;
     }
 
-    public void setTitle(final String title) {
+    public void setTitle(String title) {
         this.title = title;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(final BigDecimal price) {
-        this.price = price;
     }
 
     public String getPriceAsText() {
         return priceAsText;
     }
 
-    @Override
-    public String toString() {
-        return "Product [url=" + url + ", title=" + title + ", priceAsText=" + priceAsText + ", price=" + price + "]";
+    public void setPriceAsText(String priceAsText) {
+        this.priceAsText = priceAsText;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
     }
 
 }

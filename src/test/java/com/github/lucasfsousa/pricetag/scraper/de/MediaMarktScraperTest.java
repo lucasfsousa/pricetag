@@ -22,10 +22,15 @@ public class MediaMarktScraperTest extends AbstractScraperTest {
     }
 
     @Test
-    public void shouldParseSaturnProduct() throws Exception {
+    public void shouldParseMediaMarktProduct() throws Exception {
         final Document document = getDocument("de/mediamarkt");
         assertEquals("35.99", scraper.getPrice(document));
         assertEquals("The Witcher 3 - Wild Hunt (Game of the Year Edition) [PlayStation 4]",
                 scraper.getTitle(document));
+        assertEquals("Media Markt", scraper.getStore(document));
+        assertEquals("DE", scraper.getCountryCode(document));
+        assertEquals("BANDAI NAMCO GAMES GERMANY GMB", scraper.getBrand(document));
+        assertEquals(29, scraper.getImages(document).size());
+        assertEquals("3391891989947", scraper.getMetadata(document).get("EAN"));
     }
 }

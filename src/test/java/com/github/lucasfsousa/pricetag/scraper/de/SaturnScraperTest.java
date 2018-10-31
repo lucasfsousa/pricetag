@@ -8,7 +8,6 @@ import org.jsoup.nodes.Document;
 import org.junit.Test;
 
 import com.github.lucasfsousa.pricetag.AbstractScraperTest;
-import com.github.lucasfsousa.pricetag.scraper.de.SaturnScraper;
 
 public class SaturnScraperTest extends AbstractScraperTest {
     private final SaturnScraper scraper = new SaturnScraper();
@@ -23,9 +22,14 @@ public class SaturnScraperTest extends AbstractScraperTest {
     @Test
     public void shouldParseSaturnProduct() throws Exception {
         final Document document = getDocument("de/saturn");
-        assertEquals("549", scraper.getPrice(document));
+        assertEquals("549.00", scraper.getPrice(document));
         assertEquals(
                 "ASUS F555QG-DM188T, Notebook mit 15.6 Zoll Display, A10 Prozessor, 12 GB RAM, 1 TB HDD, Radeon™ R5 M430, Schwarz/Silber",
                 scraper.getTitle(document));
+        assertEquals("Saturn", scraper.getStore(document));
+        assertEquals("DE", scraper.getCountryCode(document));
+        assertEquals("ASUS", scraper.getBrand(document));
+        assertEquals(8, scraper.getImages(document).size());
+        assertEquals("2360237", scraper.getMetadata(document).get("Artikelnummer"));
     }
 }
