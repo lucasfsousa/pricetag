@@ -22,7 +22,7 @@ Using the library [JSOUP](https://jsoup.org/), is possible to read the page and 
 <dependency>
   <groupId>com.github.lucasfsousa</groupId>
   <artifactId>pricetag</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
 </dependency>
 ```
 
@@ -46,5 +46,3 @@ Using the library [JSOUP](https://jsoup.org/), is possible to read the page and 
 ## TODOs
  - Add support to others stores (Gamestop \o/)
  - Improve documentation
- - Return product images url
- - Return store information: name and country
