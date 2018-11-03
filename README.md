@@ -42,6 +42,7 @@ Using the library [JSOUP](https://jsoup.org/), is possible to read the page and 
 
  - Saturn
  - Media Markt
+ - Bücher.de
 
 ## TODOs
  - Add support to others stores (Gamestop \o/)
