@@ -1,7 +1,7 @@
 package com.github.lucasfsousa.pricetag.scraper.de;
 
-import com.github.lucasfsousa.pricetag.Product;
-import com.github.lucasfsousa.pricetag.scraper.Scraper;
+import com.github.lucasfsousa.pricetag.AbstractScraperTest;
+import org.jsoup.nodes.Document;
 import org.junit.Test;
 
 import java.util.Map;
@@ -9,9 +9,9 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class BuecherDeScraperTest {
+public class BuecherDeScraperTest extends AbstractScraperTest {
 
-    final Scraper scraper = new BuecherDeScraper();
+    final BuecherDeScraper scraper = new BuecherDeScraper();
 
     @Test
     public void shouldMatchBuecherDeUrl() {
@@ -21,17 +21,16 @@ public class BuecherDeScraperTest {
 
     @Test
     public void parsesBuecherDeDocument() throws Exception {
-        Product crackingTheCodingInterviewBook = scraper.process(
-                "https://www.buecher.de/shop/englische-buecher/cracking-the-coding-interview-189-programming-questions-and-solutions/mcdowell-gayle-laakmann/products_products/detail/prod_id/43407634/");
-        assertEquals("Bücher.de", crackingTheCodingInterviewBook.getStore());
-        assertEquals("44,99", crackingTheCodingInterviewBook.getPriceAsText());
-        assertEquals("DE", crackingTheCodingInterviewBook.getCountryCode());
+        final Document document = getDocument("de/buecherde");
+        assertEquals("Bücher.de", scraper.getStore(document));
+        assertEquals("44,99", scraper.getPrice(document));
+        assertEquals("DE", scraper.getCountryCode(document));
         assertEquals("Cracking the Coding Interview: 189 Programming Questions and Solutions",
-                     crackingTheCodingInterviewBook.getTitle());
-        assertEquals(1, crackingTheCodingInterviewBook.getImages().size());
+                     scraper.getTitle(document));
+        assertEquals(1, scraper.getImages(document).size());
         assertEquals("http://bilder.buecher.de/produkte/43/43407/43407634z.jpg",
-                     crackingTheCodingInterviewBook.getImages().get(0));
-        Map<String, String> metadata = crackingTheCodingInterviewBook.getMetadata();
+                     scraper.getImages(document).get(0));
+        Map<String, String> metadata = scraper.getMetadata(document);
         assertEquals(8, metadata.size());
         assertEquals("CareerCup", metadata.get("Verlag"));
         assertEquals("708", metadata.get("Seitenzahl"));
