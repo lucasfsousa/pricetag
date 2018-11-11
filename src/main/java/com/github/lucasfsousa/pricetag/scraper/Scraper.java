@@ -1,18 +1,17 @@
 package com.github.lucasfsousa.pricetag.scraper;
 
+import com.github.lucasfsousa.pricetag.ParseException;
+import com.github.lucasfsousa.pricetag.Product;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-
-import com.github.lucasfsousa.pricetag.ParseException;
-import com.github.lucasfsousa.pricetag.Product;
 
 public abstract class Scraper {
     public static final String BRAZIL = "BR";
@@ -83,5 +82,9 @@ public abstract class Scraper {
             }
         }
         throw new ParseException("Error parsing document, query: " + Arrays.toString(queries));
+    }
+
+    protected String getMetaContent(Document document, String property) {
+        return document.select("meta[property=" + property + "]").attr("content");
     }
 }

@@ -24,8 +24,8 @@ public class BuecherDeScraper extends Scraper {
     }
 
     @Override protected String getBrand(Document document) throws ParseException {
-        // TODO does not have a brand?
-        return null;
+        // can be removed when issue #24 is resolved
+        return "";
     }
 
     @Override protected String getTitle(Document document) throws ParseException {
@@ -51,10 +51,5 @@ public class BuecherDeScraper extends Scraper {
                                (splittedMetadataString -> splittedMetadataString[0].trim()),
                                (splittedMetadataString -> splittedMetadataString[1].trim())
                        ));
-    }
-
-    // TODO refactor - copied code from MediaMarktSaturnScraper
-    private String getMetaContent(Document document, String property) {
-        return document.select("meta[property=" + property + "]").attr("content");
     }
 }
