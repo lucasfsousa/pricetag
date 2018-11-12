@@ -1,16 +1,15 @@
 package com.github.lucasfsousa.pricetag.scraper.de;
 
+import com.github.lucasfsousa.pricetag.ParseException;
+import com.github.lucasfsousa.pricetag.scraper.Scraper;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-
-import com.github.lucasfsousa.pricetag.ParseException;
-import com.github.lucasfsousa.pricetag.scraper.Scraper;
 
 public abstract class MediaMarktSaturnScraper extends Scraper {
 
@@ -59,9 +58,4 @@ public abstract class MediaMarktSaturnScraper extends Scraper {
         }
         return map;
     }
-
-    private String getMetaContent(Document document, String property) {
-        return document.select("meta[property=" + property + "]").attr("content");
-    }
-
 }
