@@ -8,7 +8,6 @@ import org.jsoup.nodes.Document;
 import org.junit.Test;
 
 import com.github.lucasfsousa.pricetag.AbstractScraperTest;
-import com.github.lucasfsousa.pricetag.scraper.de.MediaMarktScraper;
 
 public class MediaMarktScraperTest extends AbstractScraperTest {
     private final MediaMarktScraper scraper = new MediaMarktScraper();

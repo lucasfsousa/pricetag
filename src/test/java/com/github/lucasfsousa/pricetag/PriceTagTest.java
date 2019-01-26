@@ -5,9 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Collections;
 
+import com.github.lucasfsousa.pricetag.scraper.Scraper;
 import org.junit.Test;
 
-import com.github.lucasfsousa.pricetag.scraper.Scraper;
 import com.github.lucasfsousa.pricetag.scraper.in.AmazonScraper;
 
 public class PriceTagTest {
